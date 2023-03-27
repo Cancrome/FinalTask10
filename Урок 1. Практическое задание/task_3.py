@@ -9,3 +9,19 @@
 --- обязательно!!! усложните задачу, "отловив" исключение,
 придумайте как это сделать
 """
+
+
+def capture(el):
+    try:
+        eval(f"b'{el}'")
+        return True
+    except SyntaxError:
+        return False
+
+
+words = ['attribute', 'класс', 'функция', 'type']
+for i in words:
+
+    if capture(i) == 0:
+        print(f"Это слово невозможно записать в байтовом "
+              f"типе с помощью маркировки b'': ", i)
